@@ -6,48 +6,52 @@
 
 @layer base {
   :root {
-    /* Dark theme base colors */
-    --background: 240 10% 4%;
-    --foreground: 0 0% 98%;
+    /* Raccoon palette - mask + fur with amber accents */
+    --background: 220 15% 7%;
+    --foreground: 0 0% 96%;
 
-    --card: 240 6% 8%;
-    --card-foreground: 0 0% 95%;
+    --card: 220 12% 9%;
+    --card-foreground: 0 0% 96%;
 
-    --popover: 240 6% 8%;
-    --popover-foreground: 0 0% 95%;
+    --popover: 220 12% 9%;
+    --popover-foreground: 0 0% 96%;
 
-    /* Neon cyan primary */
-    --primary: 180 100% 50%;
+    /* Raccoon-ish brand */
+    --primary: 210 24% 62%;            /* steel-blue highlight */
     --primary-foreground: 240 10% 4%;
-    --primary-glow: 180 100% 70%;
+    --primary-glow: 210 24% 70%;
 
-    /* Gold secondary */
-    --secondary: 45 100% 60%;
+    --secondary: 30 70% 48%;           /* amber “stripe” accent */
     --secondary-foreground: 240 10% 4%;
-    --secondary-glow: 45 100% 75%;
+    --secondary-glow: 30 80% 60%;
 
-    /* Bronze accent */
-    --accent: 30 65% 45%;
+    --accent: 25 70% 45%;              /* rusty brown */
     --accent-foreground: 0 0% 98%;
-    --accent-glow: 30 85% 65%;
+    --accent-glow: 25 75% 58%;
 
-    --muted: 240 6% 15%;
-    --muted-foreground: 240 5% 65%;
+    --muted: 220 10% 16%;
+    --muted-foreground: 220 8% 60%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 240 6% 20%;
-    --input: 240 6% 15%;
-    --ring: 180 100% 50%;
+    --border: 220 10% 22%;
+    --input: 220 10% 18%;
+    --ring: 210 24% 62%;
 
     --radius: 0.75rem;
 
-    /* Custom design tokens */
-    --neon-cyan: 180 100% 50%;
-    --neon-bronze: 30 65% 45%;
-    --neon-gold: 45 100% 60%;
-    --turntable-black: 240 20% 8%;
+    /* Custom design tokens (raccoon) */
+    --neon-cyan: 210 24% 62%; /* remapped to steel-blue */
+    --neon-bronze: 25 70% 45%; /* remapped to rusty amber */
+    --neon-gold: 30 70% 50%;   /* warm amber */
+    --turntable-black: 220 15% 7%;
+
+    /* Raccoon tokens */
+    --raccoon-fur-1: 220 12% 12%;
+    --raccoon-fur-2: 220 10% 20%;
+    --raccoon-mask: 0 0% 8%;
+    --raccoon-cream: 35 25% 82%;
 
     /* Meme/Degen tokens */
     --pepe-green-1: 120 60% 40%;
@@ -55,40 +59,38 @@
     --degen-pink: 345 100% 45%;
     --ink-black: 0 0% 10%;
     --ink-gray: 0 0% 25%;
-    --tg-blue-1: 200 90% 45%;
-    --tg-blue-2: 195 85% 55%;
+    --tg-blue-1: 210 70% 48%;
+    --tg-blue-2: 205 65% 55%;
     --tiktok-pink: 345 100% 45%;
         
     /* Gradients */
     --gradient-neon: linear-gradient(135deg, hsl(var(--neon-cyan)), hsl(var(--neon-bronze)));
-    --gradient-gold: linear-gradient(135deg, hsl(var(--neon-gold)), hsl(45 100% 75%));
-    --gradient-bronze: linear-gradient(135deg, hsl(var(--neon-bronze)), hsl(30 85% 65%));
-    --gradient-turntable: radial-gradient(circle, hsl(var(--turntable-black)), hsl(240 30% 3%));
+    --gradient-gold: linear-gradient(135deg, hsl(var(--neon-gold)), hsl(30 80% 60%));
+    --gradient-bronze: linear-gradient(135deg, hsl(var(--neon-bronze)), hsl(25 75% 58%));
+    --gradient-turntable: radial-gradient(circle, hsl(var(--raccoon-fur-2)), hsl(var(--raccoon-mask)));
     
     /* Glows and shadows */
-    --glow-cyan: 0 0 30px hsl(var(--neon-cyan) / 0.5);
-    --glow-bronze: 0 0 30px hsl(var(--neon-bronze) / 0.5);
-    --glow-gold: 0 0 30px hsl(var(--neon-gold) / 0.5);
-    --shadow-turntable: 0 20px 60px hsl(0 0% 0% / 0.8);
+    --glow-steel: 0 0 30px hsl(210 24% 62% / 0.35);
+    --glow-amber: 0 0 30px hsl(30 70% 50% / 0.35);
+    /* Map legacy glows to new palette */
+    --glow-cyan: var(--glow-steel);
+    --glow-bronze: var(--glow-amber);
+    --glow-gold: 0 0 30px hsl(30 80% 60% / 0.35);
     
+    --shadow-turntable: 0 20px 60px hsl(0 0% 0% / 0.8);
+        
     /* Animations */
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     --transition-bounce: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 
+    /* Sidebar tokens */
     --sidebar-background: 0 0% 98%;
-
     --sidebar-foreground: 240 5.3% 26.1%;
-
     --sidebar-primary: 240 5.9% 10%;
-
     --sidebar-primary-foreground: 0 0% 98%;
-
     --sidebar-accent: 240 4.8% 95.9%;
-
     --sidebar-accent-foreground: 240 5.9% 10%;
-
     --sidebar-border: 220 13% 91%;
-
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
 
