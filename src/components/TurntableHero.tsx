@@ -18,7 +18,7 @@ const TurntableHero = () => {
   return (
     <section className="flex flex-col items-center justify-center min-h-screen px-4 py-12">
       <div className="text-center mb-12 animate-fade-in">
-        <h1 className="text-5xl md:text-7xl font-bold mb-4 bg-gradient-to-r from-primary via-accent to-secondary bg-clip-text text-transparent">
+        <h1 className="text-5xl md:text-7xl font-extrabold mb-4 bg-gradient-to-r from-accent via-secondary to-accent bg-clip-text text-transparent drop-shadow">
           🎵 PEDRO AUDIO 🎵
         </h1>
         <p className="text-xl md:text-2xl text-muted-foreground max-w-2xl mx-auto">

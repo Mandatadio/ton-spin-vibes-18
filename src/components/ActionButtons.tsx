@@ -5,14 +5,14 @@ const ActionButtons = () => {
     {
       label: '🚀 BUY $PEDRO',
       icon: <TrendingUp className="w-6 h-6" />,
-      href: '#buy-token',
+      href: 'https://app.ston.fi/swap',
       className: 'meme-btn-buy',
       primary: true
     },
     {
       label: '📊 DEX CHART',
       icon: <ExternalLink className="w-6 h-6" />,
-      href: '#dexscreener',
+      href: 'https://dexscreener.com/search?q=EQBGtsm26tdn6bRjZrmLZkZMqk-K8wd4R66k52ntPU4UzcV0',
       className: 'meme-btn-chart'
     },
     {
