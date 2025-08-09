@@ -1,4 +1,4 @@
-import { ExternalLink, MessageCircle, Twitter, Music, TrendingUp } from 'lucide-react';
+import { ExternalLink, TrendingUp } from 'lucide-react';
 
 const ActionButtons = () => {
   const buttons = [
@@ -14,24 +14,6 @@ const ActionButtons = () => {
       icon: <ExternalLink className="w-6 h-6" />,
       href: 'https://dexscreener.com/search?q=EQBGtsm26tdn6bRjZrmLZkZMqk-K8wd4R66k52ntPU4UzcV0',
       className: 'sticker-chart',
-    },
-    {
-      label: '💬 TELEGRAM',
-      icon: <MessageCircle className="w-6 h-6" />,
-      href: 'https://t.me/PedroCTOTON',
-      className: 'sticker-telegram',
-    },
-    {
-      label: '🐦 TWITTER',
-      icon: <Twitter className="w-6 h-6" />,
-      href: 'https://x.com/_PEDROTON?t=qPVKYqS0H9mKDGy5aFR4Ag&s=09',
-      className: 'sticker-social',
-    },
-    {
-      label: '🎵 TIKTOK',
-      icon: <Music className="w-6 h-6" />,
-      href: 'https://www.tiktok.com/@pedro.on.ton?_t=ZS-8yj9JGsIHJc&_r=1',
-      className: 'sticker-tiktok',
     },
   ];
 
