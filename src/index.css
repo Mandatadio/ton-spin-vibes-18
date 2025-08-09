@@ -26,10 +26,10 @@
     --secondary-foreground: 240 10% 4%;
     --secondary-glow: 45 100% 75%;
 
-    /* Purple accent */
-    --accent: 270 100% 65%;
+    /* Bronze accent */
+    --accent: 30 65% 45%;
     --accent-foreground: 0 0% 98%;
-    --accent-glow: 270 100% 80%;
+    --accent-glow: 30 85% 65%;
 
     --muted: 240 6% 15%;
     --muted-foreground: 240 5% 65%;
@@ -45,18 +45,19 @@
 
     /* Custom design tokens */
     --neon-cyan: 180 100% 50%;
-    --neon-purple: 270 100% 65%;
+    --neon-bronze: 30 65% 45%;
     --neon-gold: 45 100% 60%;
     --turntable-black: 240 20% 8%;
     
     /* Gradients */
-    --gradient-neon: linear-gradient(135deg, hsl(var(--neon-cyan)), hsl(var(--neon-purple)));
+    --gradient-neon: linear-gradient(135deg, hsl(var(--neon-cyan)), hsl(var(--neon-bronze)));
     --gradient-gold: linear-gradient(135deg, hsl(var(--neon-gold)), hsl(45 100% 75%));
+    --gradient-bronze: linear-gradient(135deg, hsl(var(--neon-bronze)), hsl(30 85% 65%));
     --gradient-turntable: radial-gradient(circle, hsl(var(--turntable-black)), hsl(240 30% 3%));
     
     /* Glows and shadows */
     --glow-cyan: 0 0 30px hsl(var(--neon-cyan) / 0.5);
-    --glow-purple: 0 0 30px hsl(var(--neon-purple) / 0.5);
+    --glow-bronze: 0 0 30px hsl(var(--neon-bronze) / 0.5);
     --glow-gold: 0 0 30px hsl(var(--neon-gold) / 0.5);
     --shadow-turntable: 0 20px 60px hsl(0 0% 0% / 0.8);
     
@@ -148,59 +149,105 @@
     background: conic-gradient(from 0deg, 
       hsl(var(--neon-cyan) / 0.2) 0deg, 
       transparent 90deg, 
-      hsl(var(--neon-purple) / 0.2) 180deg, 
+      hsl(var(--neon-bronze) / 0.2) 180deg, 
       transparent 270deg);
     animation: spin 10s linear infinite;
   }
   
   .turntable-frame:hover {
-    box-shadow: var(--shadow-turntable), var(--glow-cyan), var(--glow-purple);
+    box-shadow: var(--shadow-turntable), var(--glow-cyan), var(--glow-bronze);
     transform: scale(1.02);
   }
 
-  /* Action Buttons */
-  .action-btn {
-    @apply relative px-6 py-3 rounded-xl font-semibold text-sm
+  /* Meme-style Action Buttons */
+  .meme-btn {
+    @apply relative px-8 py-4 rounded-3xl font-bold text-lg
            transition-all duration-300 cursor-pointer
-           backdrop-blur-sm border-2 overflow-hidden;
+           border-4 shadow-lg transform-gpu
+           hover:scale-105 active:scale-95;
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    min-height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
   }
   
-  .action-btn-primary {
-    @apply action-btn;
-    background: var(--gradient-neon);
-    border-color: hsl(var(--neon-cyan));
-    color: hsl(var(--primary-foreground));
-    box-shadow: var(--glow-cyan);
+  .meme-btn-buy {
+    @apply meme-btn;
+    background: linear-gradient(145deg, #ff6b35, #ff8e53);
+    border-color: #ff4500;
+    color: white;
+    box-shadow: 0 8px 20px rgba(255, 107, 53, 0.4), 
+                inset 0 2px 4px rgba(255,255,255,0.2);
   }
   
-  .action-btn-primary:hover {
-    transform: translateY(-2px) scale(1.02);
-    box-shadow: var(--glow-cyan), 0 10px 25px hsl(var(--neon-cyan) / 0.3);
+  .meme-btn-buy:hover {
+    background: linear-gradient(145deg, #ff8e53, #ffaa77);
+    box-shadow: 0 12px 30px rgba(255, 107, 53, 0.6),
+                inset 0 2px 4px rgba(255,255,255,0.3);
+    transform: translateY(-3px) scale(1.05);
   }
   
-  .action-btn-secondary {
-    @apply action-btn;
+  .meme-btn-chart {
+    @apply meme-btn;
     background: var(--gradient-gold);
     border-color: hsl(var(--neon-gold));
     color: hsl(var(--secondary-foreground));
-    box-shadow: var(--glow-gold);
+    box-shadow: var(--glow-gold), inset 0 2px 4px rgba(255,255,255,0.2);
   }
   
-  .action-btn-secondary:hover {
-    transform: translateY(-2px) scale(1.02);
-    box-shadow: var(--glow-gold), 0 10px 25px hsl(var(--neon-gold) / 0.3);
+  .meme-btn-chart:hover {
+    box-shadow: var(--glow-gold), 0 12px 30px hsl(var(--neon-gold) / 0.4),
+                inset 0 2px 4px rgba(255,255,255,0.3);
+    transform: translateY(-3px) scale(1.05);
   }
   
-  .action-btn-outline {
-    @apply action-btn bg-transparent;
-    border-color: hsl(var(--accent));
-    color: hsl(var(--accent));
+  .meme-btn-social {
+    @apply meme-btn;
+    background: var(--gradient-bronze);
+    border-color: hsl(var(--neon-bronze));
+    color: white;
+    box-shadow: var(--glow-bronze), inset 0 2px 4px rgba(255,255,255,0.1);
   }
   
-  .action-btn-outline:hover {
-    background: hsl(var(--accent) / 0.1);
-    box-shadow: var(--glow-purple);
-    transform: translateY(-2px) scale(1.02);
+  .meme-btn-social:hover {
+    box-shadow: var(--glow-bronze), 0 12px 30px hsl(var(--neon-bronze) / 0.4),
+                inset 0 2px 4px rgba(255,255,255,0.2);
+    transform: translateY(-3px) scale(1.05);
+  }
+  
+  .meme-btn-telegram {
+    @apply meme-btn;
+    background: linear-gradient(145deg, #0088cc, #24a3d9);
+    border-color: #0088cc;
+    color: white;
+    box-shadow: 0 8px 20px rgba(0, 136, 204, 0.4),
+                inset 0 2px 4px rgba(255,255,255,0.2);
+  }
+  
+  .meme-btn-telegram:hover {
+    background: linear-gradient(145deg, #24a3d9, #4dc8f0);
+    box-shadow: 0 12px 30px rgba(0, 136, 204, 0.6),
+                inset 0 2px 4px rgba(255,255,255,0.3);
+    transform: translateY(-3px) scale(1.05);
+  }
+  
+  .meme-btn-tiktok {
+    @apply meme-btn;
+    background: linear-gradient(145deg, #000000, #333333);
+    border-color: #ff0050;
+    color: white;
+    box-shadow: 0 8px 20px rgba(255, 0, 80, 0.4),
+                inset 0 2px 4px rgba(255,255,255,0.1);
+  }
+  
+  .meme-btn-tiktok:hover {
+    background: linear-gradient(145deg, #333333, #555555);
+    box-shadow: 0 12px 30px rgba(255, 0, 80, 0.6),
+                inset 0 2px 4px rgba(255,255,255,0.2);
+    transform: translateY(-3px) scale(1.05);
   }
 
   /* Fame Card */
@@ -223,7 +270,7 @@
   
   @keyframes pulse-glow {
     0%, 100% { box-shadow: var(--glow-cyan); }
-    50% { box-shadow: var(--glow-cyan), var(--glow-purple); }
+    50% { box-shadow: var(--glow-cyan), var(--glow-bronze); }
   }
   
   .animate-pulse-glow {

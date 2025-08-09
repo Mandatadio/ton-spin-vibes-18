@@ -3,47 +3,56 @@ import { ExternalLink, MessageCircle, Twitter, Music, TrendingUp } from 'lucide-
 const ActionButtons = () => {
   const buttons = [
     {
-      label: 'Buy Token',
-      icon: <TrendingUp className="w-5 h-5" />,
+      label: '🚀 BUY $PEDRO',
+      icon: <TrendingUp className="w-6 h-6" />,
       href: '#buy-token',
-      className: 'action-btn-primary',
+      className: 'meme-btn-buy',
       primary: true
     },
     {
-      label: 'Dexscreener',
-      icon: <ExternalLink className="w-5 h-5" />,
+      label: '📊 DEX CHART',
+      icon: <ExternalLink className="w-6 h-6" />,
       href: '#dexscreener',
-      className: 'action-btn-secondary'
+      className: 'meme-btn-chart'
     },
     {
-      label: 'Telegram',
-      icon: <MessageCircle className="w-5 h-5" />,
+      label: '💬 TELEGRAM',
+      icon: <MessageCircle className="w-6 h-6" />,
       href: '#telegram',
-      className: 'action-btn-outline'
+      className: 'meme-btn-telegram'
     },
     {
-      label: 'X (Twitter)',
-      icon: <Twitter className="w-5 h-5" />,
+      label: '🐦 TWITTER',
+      icon: <Twitter className="w-6 h-6" />,
       href: '#twitter',
-      className: 'action-btn-outline'
+      className: 'meme-btn-social'
     },
     {
-      label: 'TikTok',
-      icon: <Music className="w-5 h-5" />,
+      label: '🎵 TIKTOK',
+      icon: <Music className="w-6 h-6" />,
       href: '#tiktok',
-      className: 'action-btn-outline'
+      className: 'meme-btn-tiktok'
     }
   ];
 
   return (
     <section className="w-full px-4 py-12">
-      <div className="max-w-6xl mx-auto">
+      <div className="max-w-5xl mx-auto">
+        <div className="text-center mb-8">
+          <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-2">
+            Join the Pedro Revolution! 🎉
+          </h2>
+          <p className="text-muted-foreground">
+            Get in early, moon later! 🌙
+          </p>
+        </div>
+        
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 lg:gap-6">
           {buttons.map((button, index) => (
             <a
               key={button.label}
               href={button.href}
-              className={`${button.className} flex items-center justify-center gap-3 min-h-[60px] group`}
+              className={`${button.className} animate-fade-in group`}
               style={{
                 animationDelay: `${index * 100}ms`
               }}
@@ -51,7 +60,7 @@ const ActionButtons = () => {
               <span className="transition-transform duration-300 group-hover:scale-110">
                 {button.icon}
               </span>
-              <span className="font-medium">{button.label}</span>
+              <span className="font-bold text-center leading-tight">{button.label}</span>
             </a>
           ))}
         </div>

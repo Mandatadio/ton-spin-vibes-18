@@ -19,10 +19,13 @@ const TurntableHero = () => {
     <section className="flex flex-col items-center justify-center min-h-screen px-4 py-12">
       <div className="text-center mb-12 animate-fade-in">
         <h1 className="text-5xl md:text-7xl font-bold mb-4 bg-gradient-to-r from-primary via-accent to-secondary bg-clip-text text-transparent">
-          PEDRO AUDIO
+          🎵 PEDRO AUDIO 🎵
         </h1>
         <p className="text-xl md:text-2xl text-muted-foreground max-w-2xl mx-auto">
-          The hottest audio memecoin on TON blockchain 🔥
+          The hottest audio memecoin on TON! 🔥🚀
+        </p>
+        <p className="text-lg text-accent font-semibold mt-2">
+          CTO JUST LAUNCHED! Don't miss the moon mission! 🌙
         </p>
       </div>
 
