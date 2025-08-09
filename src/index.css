@@ -139,8 +139,11 @@
   }
 
   body {
-    @apply bg-background text-foreground;
-    background: var(--gradient-turntable);
+    @apply bg-background text-foreground font-sans;
+    background-image: var(--gradient-turntable), url('/textures/noise.png');
+    background-size: cover, 256px 256px;
+    background-repeat: no-repeat, repeat;
+    background-attachment: fixed, fixed;
     min-height: 100vh;
   }
 }

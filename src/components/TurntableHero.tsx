@@ -24,7 +24,7 @@ const TurntableHero = () => {
         </div>
 
         <header className="max-w-2xl mx-auto text-center space-y-4 mt-8 animate-fade-in">
-          <h1 className="text-4xl md:text-6xl font-extrabold leading-tight bg-gradient-to-r from-primary via-accent to-secondary bg-clip-text text-transparent">
+          <h1 className="font-display text-4xl md:text-6xl font-extrabold leading-tight bg-gradient-to-r from-primary via-accent to-secondary bg-clip-text text-transparent">
             PEDRO THE DEGEN RACCOON
           </h1>
           <p className="text-lg md:text-xl text-muted-foreground">
