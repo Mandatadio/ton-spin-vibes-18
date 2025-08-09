@@ -7,7 +7,7 @@ const MarqueeTicker = () => {
       <div className="marquee-inner">
         {items.map((_, i) => (
           <div key={i} className="marquee-item">
-            🦝 CA: {CONTRACT_ADDRESS} • 🚀 PEDRO • 💚 PEPE VIBES •
+            🦝 CA: {CONTRACT_ADDRESS} • 🚀 PEDRO • COMMUNITY VIBES •
           </div>
         ))}
       </div>

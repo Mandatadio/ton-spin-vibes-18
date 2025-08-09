@@ -118,20 +118,24 @@ const WallOfFame = () => {
                 animationDelay: `${index * 150}ms`
               }}
             >
-              {/* Video Thumbnail */}
-              <div className="relative mb-4 rounded-lg overflow-hidden">
-                <img
-                  src={entry.thumbnail}
-                  alt={entry.videoTitle}
-                  className="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-105"
-                />
-                <div className="absolute top-2 right-2 bg-black/70 text-white px-2 py-1 rounded text-xs flex items-center gap-1">
-                  <Users className="w-3 h-3" />
-                  {formatViews(entry.views)}
-                </div>
-                <div className="absolute bottom-2 left-2 bg-black/70 text-white px-2 py-1 rounded text-xs flex items-center gap-1">
-                  <Clock className="w-3 h-3" />
-                  {getTimeRemaining(entry.uploadTime)}h left
+              <div className="relative mb-4 flex items-center justify-center">
+                <div className="relative w-36 h-36 md:w-44 md:h-44 rounded-full border-2 border-border/60 bg-card/60 p-1">
+                  <div className="relative w-full h-full rounded-full overflow-hidden">
+                    <img
+                      src={entry.thumbnail}
+                      alt={entry.videoTitle}
+                      className="w-full h-full object-cover"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent opacity-70" />
+                  </div>
+                  <div className="absolute -top-2 -right-2 bg-black/70 text-white px-2 py-1 rounded-full text-xs flex items-center gap-1">
+                    <Users className="w-3 h-3" />
+                    {formatViews(entry.views)}
+                  </div>
+                  <div className="absolute -bottom-2 -left-2 bg-black/70 text-white px-2 py-1 rounded-full text-xs flex items-center gap-1">
+                    <Clock className="w-3 h-3" />
+                    {getTimeRemaining(entry.uploadTime)}h left
+                  </div>
                 </div>
               </div>
 

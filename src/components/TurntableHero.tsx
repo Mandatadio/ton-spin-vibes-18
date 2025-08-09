@@ -2,31 +2,35 @@ import posterImg from '@/assets/turntable-hero.jpg'
 
 const TurntableHero = () => {
   return (
-    <section className="relative min-h-[70vh] px-0 pt-12 md:pt-16 pb-0 overflow-hidden">
-      {/* Background video */}
-      <div aria-hidden className="absolute inset-0">
-        <video
-          className="h-full w-full object-cover"
-          src="/videos/turntable.mp4"
-          autoPlay
-          muted
-          loop
-          playsInline
-          poster={posterImg}
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/60 to-background/20" />
-      </div>
+    <section className="relative px-0 pt-10 md:pt-14 pb-0">
+      <div className="relative max-w-6xl mx-auto w-full px-4">
+        <div className="w-full flex items-center justify-center">
+          <div className="turntable-frame" aria-label="DJ turntable video">
+            <div className="absolute inset-3 rounded-full overflow-hidden">
+              <video
+                className="h-full w-full object-cover"
+                src="/videos/turntable.mp4"
+                autoPlay
+                muted
+                loop
+                playsInline
+                poster={posterImg}
+              />
+            </div>
+            <div className="absolute inset-0 rounded-full pointer-events-none">
+              <div className="absolute inset-[42%] rounded-full bg-background/70 border border-border" />
+            </div>
+          </div>
+        </div>
 
-      {/* Foreground content */}
-      <div className="relative max-w-6xl mx-auto w-full px-4 py-16 md:py-24">
-        <header className="max-w-2xl space-y-4 animate-fade-in">
-          <h1 className="text-5xl md:text-7xl font-extrabold leading-tight bg-gradient-to-r from-primary via-accent to-secondary bg-clip-text text-transparent">
+        <header className="max-w-2xl mx-auto text-center space-y-4 mt-8 animate-fade-in">
+          <h1 className="text-4xl md:text-6xl font-extrabold leading-tight bg-gradient-to-r from-primary via-accent to-secondary bg-clip-text text-transparent">
             PEDRO THE DEGEN RACCOON
           </h1>
-          <p className="text-xl md:text-2xl text-muted-foreground">
-            Pepe-ish energy on TON. Loud. Chaotic. Community-powered.
+          <p className="text-lg md:text-xl text-muted-foreground">
+            High-energy on TON. Loud. Chaotic. Community-powered.
           </p>
-          <p className="text-base text-accent font-semibold">
+          <p className="text-sm text-accent font-semibold">
             CTO just launched • 48h Wall of Fame • No roadmap, only vibes
           </p>
         </header>

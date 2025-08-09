@@ -1,21 +1,6 @@
-import { ExternalLink, TrendingUp } from 'lucide-react';
+import { TrendingUp } from 'lucide-react';
 
 const ActionButtons = () => {
-  const buttons = [
-    {
-      label: '🚀 BUY $PEDRO',
-      icon: <TrendingUp className="w-6 h-6" />,
-      href: 'https://app.ston.fi/swap',
-      className: 'sticker-buy',
-      primary: true,
-    },
-    {
-      label: '📊 DEX CHART',
-      icon: <ExternalLink className="w-6 h-6" />,
-      href: 'https://dexscreener.com/search?q=EQBGtsm26tdn6bRjZrmLZkZMqk-K8wd4R66k52ntPU4UzcV0',
-      className: 'sticker-chart',
-    },
-  ];
 
   return (
     <section className="w-full px-4 py-12">
@@ -29,30 +14,20 @@ const ActionButtons = () => {
           </p>
         </div>
         
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 lg:gap-6">
-          {buttons.map((button, index) => {
-            const tilts = ['-rotate-3', 'rotate-2', '-rotate-2', 'rotate-3', '-rotate-1']
-            const tilt = tilts[index % tilts.length]
-            return (
-              <a
-                key={button.label}
-                href={button.href}
-                className={`sticker-btn ${button.className} ${tilt} animate-fade-in group`}
-                aria-label={`Go to ${button.label}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                style={{
-                  animationDelay: `${index * 100}ms`,
-                }}
-              >
-                <span className="transition-transform duration-300 group-hover:scale-110">
-                  {button.icon}
-                </span>
-                <span className="font-bold text-center leading-tight">{button.label}</span>
-              </a>
-            )
-          })}
-        </div>
+          <div className="flex justify-center">
+            <a
+              href="https://app.ston.fi/swap"
+              className="inline-flex items-center gap-3 rounded-full px-8 py-4 bg-gradient-to-r from-primary to-secondary text-primary-foreground shadow-lg hover:brightness-110 transition-transform hover:scale-105 animate-fade-in"
+              aria-label="Buy $PEDRO on STON.fi"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span className="transition-transform duration-300 group-hover:scale-110">
+                <TrendingUp className="w-6 h-6" />
+              </span>
+              <span className="font-bold leading-tight text-lg">BUY $PEDRO</span>
+            </a>
+          </div>
       </div>
     </section>
   );
