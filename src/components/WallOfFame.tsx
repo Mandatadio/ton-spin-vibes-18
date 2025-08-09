@@ -13,7 +13,6 @@ interface FameEntry {
 
 const WallOfFame = () => {
   const [fameEntries, setFameEntries] = useState<FameEntry[]>([]);
-  const [now, setNow] = useState<number>(Date.now());
 
   // Mock data for demonstration
   useEffect(() => {
@@ -77,11 +76,6 @@ const WallOfFame = () => {
     setFameEntries(mockEntries);
   }, []);
 
-  useEffect(() => {
-    const id = setInterval(() => setNow(Date.now()), 1000);
-    return () => clearInterval(id);
-  }, []);
-
   const formatTimeAgo = (date: Date) => {
     const hours = Math.floor((Date.now() - date.getTime()) / (1000 * 60 * 60));
     if (hours < 1) return 'Just now';
@@ -98,19 +92,9 @@ const WallOfFame = () => {
 
   const getTimeRemaining = (uploadTime: Date) => {
     const expiryTime = new Date(uploadTime.getTime() + 48 * 60 * 60 * 1000); // 48 hours from upload
-    const remaining = expiryTime.getTime() - now;
+    const remaining = expiryTime.getTime() - Date.now();
     const hoursLeft = Math.floor(remaining / (1000 * 60 * 60));
     return Math.max(0, hoursLeft);
-  };
-
-  const RADIUS = 47;
-  const CIRC = 2 * Math.PI * RADIUS;
-
-  const getRemainingFraction = (uploadTime: Date) => {
-    const total = 48 * 60 * 60 * 1000;
-    const elapsed = Math.max(0, now - uploadTime.getTime());
-    const remaining = Math.max(0, total - elapsed);
-    return remaining / total;
   };
 
   return (
@@ -135,51 +119,20 @@ const WallOfFame = () => {
               }}
             >
               <div className="relative mb-4 flex items-center justify-center">
-                <div className="relative tg-frame tg-frame--md p-1">
-                  {/* Countdown ring */}
-                  <svg
-                    className="absolute inset-0 -rotate-90"
-                    viewBox="0 0 100 100"
-                    aria-hidden="true"
-                  >
-                    <circle
-                      cx="50"
-                      cy="50"
-                      r={RADIUS}
-                      fill="transparent"
-                      stroke="hsl(var(--tg-blue-1) / 0.2)"
-                      strokeWidth="3"
-                    />
-                    <circle
-                      cx="50"
-                      cy="50"
-                      r={RADIUS}
-                      fill="transparent"
-                      stroke="hsl(var(--tg-blue-2))"
-                      strokeWidth="4"
-                      strokeLinecap="round"
-                      style={{
-                        strokeDasharray: CIRC,
-                        strokeDashoffset: CIRC * (1 - getRemainingFraction(entry.uploadTime))
-                      }}
-                    />
-                  </svg>
-
+                <div className="relative w-36 h-36 md:w-44 md:h-44 rounded-full border-2 border-border/60 bg-card/60 p-1">
                   <div className="relative w-full h-full rounded-full overflow-hidden">
                     <img
                       src={entry.thumbnail}
                       alt={entry.videoTitle}
                       className="w-full h-full object-cover"
-                      loading="lazy"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-background/40 to-transparent" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent opacity-70" />
                   </div>
-
-                  <div className="absolute -top-2 -right-2 tg-badge">
+                  <div className="absolute -top-2 -right-2 bg-black/70 text-white px-2 py-1 rounded-full text-xs flex items-center gap-1">
                     <Users className="w-3 h-3" />
                     {formatViews(entry.views)}
                   </div>
-                  <div className="absolute -bottom-2 -left-2 tg-badge">
+                  <div className="absolute -bottom-2 -left-2 bg-black/70 text-white px-2 py-1 rounded-full text-xs flex items-center gap-1">
                     <Clock className="w-3 h-3" />
                     {getTimeRemaining(entry.uploadTime)}h left
                   </div>
