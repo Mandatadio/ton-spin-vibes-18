@@ -5,7 +5,7 @@ const TurntableHero = () => {
     <section className="relative px-0 pt-10 md:pt-14 pb-0">
       <div className="relative max-w-6xl mx-auto w-full px-4">
         <div className="w-full flex items-center justify-center">
-          <div className="turntable-frame" aria-label="DJ turntable video">
+          <div className="turntable-frame raccoon-ears raccoon-soft-shadow" aria-label="DJ turntable video">
             <div className="absolute inset-3 rounded-full overflow-hidden">
               <video
                 className="h-full w-full object-cover"

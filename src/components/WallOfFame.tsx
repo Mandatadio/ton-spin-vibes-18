@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Twitter, Clock, Users } from 'lucide-react';
+import { Twitter, Clock, Users, PawPrint } from 'lucide-react';
 
 interface FameEntry {
   id: string;
@@ -119,7 +119,7 @@ const WallOfFame = () => {
               }}
             >
               <div className="relative mb-4 flex items-center justify-center">
-                <div className="relative w-36 h-36 md:w-44 md:h-44 rounded-full border-2 border-border/60 bg-card/60 p-1">
+                <div className="relative raccoon-ears raccoon-soft-shadow w-36 h-36 md:w-44 md:h-44 rounded-full border-2 border-border/60 bg-card/60 p-1">
                   <div className="relative w-full h-full rounded-full overflow-hidden">
                     <img
                       src={entry.thumbnail}
@@ -127,6 +127,9 @@ const WallOfFame = () => {
                       className="w-full h-full object-cover"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent opacity-70" />
+                  </div>
+                  <div className="absolute -top-3 -left-3 bg-accent/90 text-accent-foreground px-2 py-1 rounded-full text-[10px] flex items-center gap-1 border border-accent/50 shadow-lg backdrop-blur-sm">
+                    <PawPrint className="w-3 h-3" />
                   </div>
                   <div className="absolute -top-2 -right-2 bg-black/70 text-white px-2 py-1 rounded-full text-xs flex items-center gap-1">
                     <Users className="w-3 h-3" />

@@ -357,4 +357,28 @@
   .animate-pulse-glow {
     animation: pulse-glow 3s ease-in-out infinite;
   }
+
+  /* Raccoon design tweaks */
+  .raccoon-soft-shadow {
+    box-shadow: 0 12px 35px hsl(var(--ink-black) / 0.6), 0 8px 20px hsl(var(--neon-cyan) / 0.15);
+  }
+
+  .raccoon-ears { position: relative; }
+  .raccoon-ears::before,
+  .raccoon-ears::after {
+    content: "";
+    position: absolute;
+    top: -10%;
+    width: 28%;
+    aspect-ratio: 1;
+    background: hsl(var(--ink-gray));
+    border: 2px solid hsl(var(--border));
+    border-bottom: none;
+    border-right: none;
+    border-radius: 60% 100% 0 100%;
+    box-shadow: 0 6px 16px hsl(0 0% 0% / 0.35);
+  }
+  .raccoon-ears::before { left: 6%; transform: rotate(-40deg); }
+  .raccoon-ears::after { right: 6%; transform: rotate(40deg); }
 }
+
