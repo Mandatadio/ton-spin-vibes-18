@@ -169,7 +169,7 @@ const WallOfFame = () => {
 
         <div className="text-center mt-12">
           <p className="text-sm text-muted-foreground">
-            Videos automatically cycle every 48 hours • Submit your Pedro content to get featured
+            Our team curates the most trending Pedro videos across socials • Videos automatically cycle every 48 hours
           </p>
         </div>
       </div>

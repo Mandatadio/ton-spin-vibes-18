@@ -28,7 +28,7 @@ const TurntableHero = () => {
             PEDRO THE DEGEN RACCOON
           </h1>
           <p className="text-lg md:text-xl text-muted-foreground">
-            High-energy on TON. Loud. Chaotic. Community-powered.
+            just dance to the tune.
           </p>
           <p className="text-sm text-accent font-semibold">
             CTO just launched • 48h Wall of Fame • No roadmap, only vibes
