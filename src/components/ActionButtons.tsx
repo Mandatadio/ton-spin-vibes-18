@@ -18,19 +18,19 @@ const ActionButtons = () => {
     {
       label: '💬 TELEGRAM',
       icon: <MessageCircle className="w-6 h-6" />,
-      href: '#telegram',
+      href: 'https://t.me/PedroCTOTON',
       className: 'meme-btn-telegram'
     },
     {
       label: '🐦 TWITTER',
       icon: <Twitter className="w-6 h-6" />,
-      href: '#twitter',
+      href: 'https://x.com/_PEDROTON?t=qPVKYqS0H9mKDGy5aFR4Ag&s=09',
       className: 'meme-btn-social'
     },
     {
       label: '🎵 TIKTOK',
       icon: <Music className="w-6 h-6" />,
-      href: '#tiktok',
+      href: 'https://www.tiktok.com/@pedro.on.ton?_t=ZS-8yj9JGsIHJc&_r=1',
       className: 'meme-btn-tiktok'
     }
   ];
@@ -53,6 +53,9 @@ const ActionButtons = () => {
               key={button.label}
               href={button.href}
               className={`${button.className} animate-fade-in group`}
+              aria-label={`Go to ${button.label}`}
+              target="_blank"
+              rel="noopener noreferrer"
               style={{
                 animationDelay: `${index * 100}ms`
               }}
