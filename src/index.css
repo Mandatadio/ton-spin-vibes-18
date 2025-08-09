@@ -2,41 +2,67 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* DJ Turntable Memecoin Design System - Dark theme with neon accents */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Dark theme base colors */
+    --background: 240 10% 4%;
+    --foreground: 0 0% 98%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card: 240 6% 8%;
+    --card-foreground: 0 0% 95%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover: 240 6% 8%;
+    --popover-foreground: 0 0% 95%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    /* Neon cyan primary */
+    --primary: 180 100% 50%;
+    --primary-foreground: 240 10% 4%;
+    --primary-glow: 180 100% 70%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    /* Gold secondary */
+    --secondary: 45 100% 60%;
+    --secondary-foreground: 240 10% 4%;
+    --secondary-glow: 45 100% 75%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    /* Purple accent */
+    --accent: 270 100% 65%;
+    --accent-foreground: 0 0% 98%;
+    --accent-glow: 270 100% 80%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --muted: 240 6% 15%;
+    --muted-foreground: 240 5% 65%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 240 6% 20%;
+    --input: 240 6% 15%;
+    --ring: 180 100% 50%;
 
-    --radius: 0.5rem;
+    --radius: 0.75rem;
+
+    /* Custom design tokens */
+    --neon-cyan: 180 100% 50%;
+    --neon-purple: 270 100% 65%;
+    --neon-gold: 45 100% 60%;
+    --turntable-black: 240 20% 8%;
+    
+    /* Gradients */
+    --gradient-neon: linear-gradient(135deg, hsl(var(--neon-cyan)), hsl(var(--neon-purple)));
+    --gradient-gold: linear-gradient(135deg, hsl(var(--neon-gold)), hsl(45 100% 75%));
+    --gradient-turntable: radial-gradient(circle, hsl(var(--turntable-black)), hsl(240 30% 3%));
+    
+    /* Glows and shadows */
+    --glow-cyan: 0 0 30px hsl(var(--neon-cyan) / 0.5);
+    --glow-purple: 0 0 30px hsl(var(--neon-purple) / 0.5);
+    --glow-gold: 0 0 30px hsl(var(--neon-gold) / 0.5);
+    --shadow-turntable: 0 20px 60px hsl(0 0% 0% / 0.8);
+    
+    /* Animations */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 
     --sidebar-background: 0 0% 98%;
 
@@ -101,5 +127,106 @@ All colors MUST be HSL.
 
   body {
     @apply bg-background text-foreground;
+    background: var(--gradient-turntable);
+    min-height: 100vh;
+  }
+}
+
+@layer components {
+  /* DJ Turntable Video Container */
+  .turntable-frame {
+    @apply relative w-80 h-80 md:w-96 md:h-96 rounded-full overflow-hidden;
+    background: var(--gradient-turntable);
+    box-shadow: var(--shadow-turntable), var(--glow-cyan);
+    border: 4px solid hsl(var(--neon-cyan) / 0.8);
+    transition: var(--transition-smooth);
+  }
+  
+  .turntable-frame::before {
+    content: '';
+    @apply absolute inset-0 rounded-full;
+    background: conic-gradient(from 0deg, 
+      hsl(var(--neon-cyan) / 0.2) 0deg, 
+      transparent 90deg, 
+      hsl(var(--neon-purple) / 0.2) 180deg, 
+      transparent 270deg);
+    animation: spin 10s linear infinite;
+  }
+  
+  .turntable-frame:hover {
+    box-shadow: var(--shadow-turntable), var(--glow-cyan), var(--glow-purple);
+    transform: scale(1.02);
+  }
+
+  /* Action Buttons */
+  .action-btn {
+    @apply relative px-6 py-3 rounded-xl font-semibold text-sm
+           transition-all duration-300 cursor-pointer
+           backdrop-blur-sm border-2 overflow-hidden;
+  }
+  
+  .action-btn-primary {
+    @apply action-btn;
+    background: var(--gradient-neon);
+    border-color: hsl(var(--neon-cyan));
+    color: hsl(var(--primary-foreground));
+    box-shadow: var(--glow-cyan);
+  }
+  
+  .action-btn-primary:hover {
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: var(--glow-cyan), 0 10px 25px hsl(var(--neon-cyan) / 0.3);
+  }
+  
+  .action-btn-secondary {
+    @apply action-btn;
+    background: var(--gradient-gold);
+    border-color: hsl(var(--neon-gold));
+    color: hsl(var(--secondary-foreground));
+    box-shadow: var(--glow-gold);
+  }
+  
+  .action-btn-secondary:hover {
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: var(--glow-gold), 0 10px 25px hsl(var(--neon-gold) / 0.3);
+  }
+  
+  .action-btn-outline {
+    @apply action-btn bg-transparent;
+    border-color: hsl(var(--accent));
+    color: hsl(var(--accent));
+  }
+  
+  .action-btn-outline:hover {
+    background: hsl(var(--accent) / 0.1);
+    box-shadow: var(--glow-purple);
+    transform: translateY(-2px) scale(1.02);
+  }
+
+  /* Fame Card */
+  .fame-card {
+    @apply relative p-4 rounded-xl border-2 border-border bg-card/50 backdrop-blur-sm
+           transition-all duration-300 hover:scale-105;
+    box-shadow: 0 4px 20px hsl(0 0% 0% / 0.3);
+  }
+  
+  .fame-card:hover {
+    border-color: hsl(var(--neon-cyan) / 0.5);
+    box-shadow: 0 8px 30px hsl(0 0% 0% / 0.4), var(--glow-cyan);
+  }
+
+  /* Animations */
+  @keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+  
+  @keyframes pulse-glow {
+    0%, 100% { box-shadow: var(--glow-cyan); }
+    50% { box-shadow: var(--glow-cyan), var(--glow-purple); }
+  }
+  
+  .animate-pulse-glow {
+    animation: pulse-glow 3s ease-in-out infinite;
   }
 }

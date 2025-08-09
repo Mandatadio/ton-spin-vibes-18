@@ -1,13 +1,26 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import TurntableHero from '@/components/TurntableHero';
+import ActionButtons from '@/components/ActionButtons';
+import WallOfFame from '@/components/WallOfFame';
 
 const Index = () => {
   return (
-    <div className="min-h-screen flex items-center justify-center bg-background">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4">Welcome to Your Blank App</h1>
-        <p className="text-xl text-muted-foreground">Start building your amazing project here!</p>
-      </div>
-    </div>
+    <main className="min-h-screen">
+      {/* Hero Section with DJ Turntable */}
+      <TurntableHero />
+      
+      {/* Action Buttons Section */}
+      <ActionButtons />
+      
+      {/* Wall of Fame Section */}
+      <WallOfFame />
+      
+      {/* Footer */}
+      <footer className="text-center py-8 px-4 border-t border-border/50">
+        <p className="text-muted-foreground">
+          Pedro Audio © 2024 • Built on TON Blockchain • Community Driven
+        </p>
+      </footer>
+    </main>
   );
 };
 
