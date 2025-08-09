@@ -6,33 +6,33 @@ const ActionButtons = () => {
       label: '🚀 BUY $PEDRO',
       icon: <TrendingUp className="w-6 h-6" />,
       href: 'https://app.ston.fi/swap',
-      className: 'meme-btn-buy',
-      primary: true
+      className: 'sticker-buy',
+      primary: true,
     },
     {
       label: '📊 DEX CHART',
       icon: <ExternalLink className="w-6 h-6" />,
       href: 'https://dexscreener.com/search?q=EQBGtsm26tdn6bRjZrmLZkZMqk-K8wd4R66k52ntPU4UzcV0',
-      className: 'meme-btn-chart'
+      className: 'sticker-chart',
     },
     {
       label: '💬 TELEGRAM',
       icon: <MessageCircle className="w-6 h-6" />,
       href: 'https://t.me/PedroCTOTON',
-      className: 'meme-btn-telegram'
+      className: 'sticker-telegram',
     },
     {
       label: '🐦 TWITTER',
       icon: <Twitter className="w-6 h-6" />,
       href: 'https://x.com/_PEDROTON?t=qPVKYqS0H9mKDGy5aFR4Ag&s=09',
-      className: 'meme-btn-social'
+      className: 'sticker-social',
     },
     {
       label: '🎵 TIKTOK',
       icon: <Music className="w-6 h-6" />,
       href: 'https://www.tiktok.com/@pedro.on.ton?_t=ZS-8yj9JGsIHJc&_r=1',
-      className: 'meme-btn-tiktok'
-    }
+      className: 'sticker-tiktok',
+    },
   ];
 
   return (
@@ -48,24 +48,28 @@ const ActionButtons = () => {
         </div>
         
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 lg:gap-6">
-          {buttons.map((button, index) => (
-            <a
-              key={button.label}
-              href={button.href}
-              className={`${button.className} animate-fade-in group`}
-              aria-label={`Go to ${button.label}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{
-                animationDelay: `${index * 100}ms`
-              }}
-            >
-              <span className="transition-transform duration-300 group-hover:scale-110">
-                {button.icon}
-              </span>
-              <span className="font-bold text-center leading-tight">{button.label}</span>
-            </a>
-          ))}
+          {buttons.map((button, index) => {
+            const tilts = ['-rotate-3', 'rotate-2', '-rotate-2', 'rotate-3', '-rotate-1']
+            const tilt = tilts[index % tilts.length]
+            return (
+              <a
+                key={button.label}
+                href={button.href}
+                className={`sticker-btn ${button.className} ${tilt} animate-fade-in group`}
+                aria-label={`Go to ${button.label}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{
+                  animationDelay: `${index * 100}ms`,
+                }}
+              >
+                <span className="transition-transform duration-300 group-hover:scale-110">
+                  {button.icon}
+                </span>
+                <span className="font-bold text-center leading-tight">{button.label}</span>
+              </a>
+            )
+          })}
         </div>
       </div>
     </section>

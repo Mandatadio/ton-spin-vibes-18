@@ -2,6 +2,7 @@ import TurntableHero from '@/components/TurntableHero';
 import ActionButtons from '@/components/ActionButtons';
 import WallOfFame from '@/components/WallOfFame';
 import ContractAddressBar from '@/components/ContractAddressBar';
+import MarqueeTicker from '@/components/MarqueeTicker';
 
 const Index = () => {
   return (
@@ -12,6 +13,7 @@ const Index = () => {
       {/* Action Buttons Section */}
       <ActionButtons />
       <ContractAddressBar />
+      <MarqueeTicker />
       
       {/* Wall of Fame Section */}
       <WallOfFame />

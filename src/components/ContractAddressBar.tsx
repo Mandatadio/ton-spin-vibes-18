@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Copy, Check, ExternalLink } from 'lucide-react';
 
-const CONTRACT_ADDRESS = 'EQBGtsm26tdn6bRjZrmLZkZMqk-K8wd4R66k52ntPU4UzcV0';
+export const CONTRACT_ADDRESS = 'EQBGtsm26tdn6bRjZrmLZkZMqk-K8wd4R66k52ntPU4UzcV0';
 
 const ContractAddressBar = () => {
   const [copied, setCopied] = useState(false);
@@ -19,7 +19,7 @@ const ContractAddressBar = () => {
   return (
     <section className="w-full px-4 mt-4">
       <div className="max-w-5xl mx-auto">
-        <div className="flex flex-col sm:flex-row items-center gap-3 p-3 rounded-xl border bg-card/60 backdrop-blur fame-card">
+        <div className="flex flex-col sm:flex-row items-center gap-3 p-3 rounded-xl border bg-card/60 backdrop-blur fame-card sticker-card">
           <div className="w-full sm:w-auto flex-1 text-center sm:text-left">
             <p className="text-xs uppercase tracking-wider text-muted-foreground">Contract Address</p>
             <p className="font-mono text-sm md:text-base break-all text-foreground/90">
