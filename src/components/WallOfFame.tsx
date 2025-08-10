@@ -109,70 +109,13 @@ const WallOfFame = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {fameEntries.map((entry, index) => (
-            <div
-              key={entry.id}
-              className="fame-card group"
-              style={{
-                animationDelay: `${index * 150}ms`
-              }}
-            >
-              <div className="relative mb-4 flex items-center justify-center">
-                <div className="relative raccoon-ears raccoon-soft-shadow w-36 h-36 md:w-44 md:h-44 rounded-full border-2 border-border/60 bg-card/60 p-1">
-                  <div className="relative w-full h-full rounded-full overflow-hidden">
-                    <img
-                      src={entry.thumbnail}
-                      alt={entry.videoTitle}
-                      className="w-full h-full object-cover"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent opacity-70" />
-                  </div>
-                  <div className="absolute -top-3 -left-3 bg-accent/90 text-accent-foreground px-2 py-1 rounded-full text-[10px] flex items-center gap-1 border border-accent/50 shadow-lg backdrop-blur-sm">
-                    <PawPrint className="w-3 h-3" />
-                  </div>
-                  <div className="absolute -top-2 -right-2 bg-black/70 text-white px-2 py-1 rounded-full text-xs flex items-center gap-1">
-                    <Users className="w-3 h-3" />
-                    {formatViews(entry.views)}
-                  </div>
-                  <div className="absolute -bottom-2 -left-2 bg-black/70 text-white px-2 py-1 rounded-full text-xs flex items-center gap-1">
-                    <Clock className="w-3 h-3" />
-                    {getTimeRemaining(entry.uploadTime)}h left
-                  </div>
-                </div>
-              </div>
-
-              {/* Content */}
-              <div className="space-y-3">
-                <h3 className="text-lg font-semibold text-foreground line-clamp-2">
-                  {entry.videoTitle}
-                </h3>
-                
-                <div className="flex items-center justify-between">
-                  <div>
-                    <p className="font-medium text-primary">{entry.username}</p>
-                    <p className="text-sm text-muted-foreground">{formatTimeAgo(entry.uploadTime)}</p>
-                  </div>
-                </div>
-
-                {/* Follow Button */}
-                <a
-                  href={`https://twitter.com/${entry.twitterHandle.replace('@', '')}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="action-btn-outline w-full flex items-center justify-center gap-2 text-center"
-                >
-                  <Twitter className="w-4 h-4" />
-                  <span>Follow on X</span>
-                </a>
-              </div>
-            </div>
-          ))}
-        </div>
-
-        <div className="text-center mt-12">
-          <p className="text-sm text-muted-foreground">
-            Our team curates the most trending Pedro videos across socials • Videos automatically cycle every 48 hours
+        <div className="max-w-xl mx-auto text-center py-16">
+          <div className="inline-flex items-center justify-center w-16 h-16 rounded-full border-2 border-dashed border-border/60 bg-card/60 text-accent mb-4">
+            <PawPrint className="w-7 h-7" />
+          </div>
+          <h3 className="text-2xl font-semibold">Coming soon</h3>
+          <p className="text-muted-foreground mt-2">
+            The Wall of Fame is being polished. Check back after launch!
           </p>
         </div>
       </div>
