@@ -9,7 +9,7 @@ const TurntableHero = () => {
             <div className="absolute inset-3 rounded-full overflow-hidden">
               <video
                 className="h-full w-full object-cover"
-                src="/videos/turntable.mp4"
+                src="/videos/VID_20250808_145937_636.mp4"
                 autoPlay
                 muted
                 loop
